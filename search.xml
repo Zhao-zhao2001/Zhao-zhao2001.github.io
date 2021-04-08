@@ -3,7 +3,104 @@
   <entry>
     <title>Hexo 建站笔记</title>
     <url>/2021/04/08/Hexo-%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>#搭建Hexo框架</p>
+    <content><![CDATA[<h1>一、搭建Hexo框架</h1>
+<p>本文基于windows操作系统搭建，hexo的相关操作可以用cmd命令台进行，也可以用下面安装的Git进行（推荐）；关于hexo主题的相关美化见后续文章，该系列可能会保持更新。另：本人也作为刚接触这里的新手，在文章中主要总结个人建站过程中的参考所得，望有不对的地方不吝赐教！</p>
+<h2 id="1、设置淘宝镜像">1、设置淘宝镜像</h2>
+<p>由于在windows上使用npm下载时可能会速度过慢，所以这里改为淘宝镜像网站：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、安装Git">2、安装Git</h2>
+<p>Git官网地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
+<p>安装过程无脑“下一步”即可。</p>
+<h2 id="3、安装Node-js">3、安装Node.js</h2>
+<p>Node.js官网：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<p>这里推荐安装LTS(长期支持)版，选择对应的系统版本即可。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408-01.png" alt="image-20210408184444633"></p>
+<h2 id="4、安装Hexo">4、安装Hexo</h2>
+<p>可以自行创建目录，名称随意，例如D:\Hexo\myblog，并在myblog文件夹右键使用Git bash here(或者cmd进入该文件夹)，命令行输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment">#初始化博客</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment">#Hexo三连,分别为清空生成文件、生成网站文件、启动本地预览</span></span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>此时若没有错误情况，由于hexo默认位于4000端口开启，则可以在浏览器中打开<em><strong>localhost:4000</strong></em>，就可以看到已经初始化的Hexo博客，默认产生第一篇文章Hello world!此外也可以更换端口使用命令  <strong>hexo s -p 端口号</strong>  即可。</p>
+<h2 id="5、博客部署">5、博客部署</h2>
+<p>由于我个人搭建的时候服务器仍未达到备案的期限，所以这里介绍将个人博客部署到github上面，后续若部署到个人域名时再进行更新。<br>
+首先，登录github创建一个新的仓库，并将仓库名命名为  <em><strong><a href="http://xn--eqr924avxo.github.io">用户名.github.io</a></strong></em>，注意这里仓库的名字是固定格式！！！<br>
+打开博客根目录（Hexo/myblog)下的根配置文件  <em><strong>_config.yml</strong></em>  文件找到deploy项，修改如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">   repo: https://github.com/用户名/仓库名</span><br><span class="line">   <span class="comment"># 如Https://github.com/zhangsan/zhangsan.github.io</span></span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure>
+<p>注： 注意在本博客几乎所有配置文件中，冒号之后都留有空格</p>
+<p>在进行上传之前，需要先在Git bash中进行对<strong><a href="http://user.name">user.name</a></strong>和<strong>user.email</strong>的设置，如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Github用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;GitHub绑定邮箱&quot;</span></span><br><span class="line"><span class="comment">#最后再进行上传</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>他喵的现在Github时不时登录不上去，所以在进行hexo d部署的时候也经常会出现超时的错误，还是建议部署到自己的域名上去，后续部署时会对该文章进行更新的。</p>
+<h1>二、基础配置</h1>
+<h2 id="1、主题设置">1、主题设置</h2>
+<p>hexo提供了大量可选的主题，参考网站：<a href="https://hexo.io/themes/">Hexo主题</a></p>
+<p>在根目录配置文件中可以设置主题，这里以butterfly主题为例，修改<em><strong>theme</strong></em>字条即可：<br>
+<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408204749.png" alt="alt 主题设置"></p>
+<p>在上述网站或其他途径选择主题后需要将主题文件保存到**/themes**目录下，例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装渲染插件</span></span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<h2 id="2、基础页">2、基础页</h2>
+<p>hexo创建页面的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page 页面名称</span><br></pre></td></tr></table></figure>
+<p>创建成功后会在命令行中提示新建页面的位置，对文件<strong><a href="http://index.md">index.md</a></strong>进行编辑可以修改页面布局。对不同主题，可以查看相应主题的文档使用，这里以butterfly主题对页面属性为例，如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">【必需】页面标题</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">【必需】创建日期</td>
+</tr>
+<tr>
+<td style="text-align:center">updated</td>
+<td style="text-align:center">【可选】更新日期</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">【必需】页面类型</td>
+</tr>
+<tr>
+<td style="text-align:center">description</td>
+<td style="text-align:center">【可选】页面描述</td>
+</tr>
+<tr>
+<td style="text-align:center">top_img</td>
+<td style="text-align:center">【可选】顶部图片</td>
+</tr>
+<tr>
+<td style="text-align:center">aside</td>
+<td style="text-align:center">【可选】显示侧边栏</td>
+</tr>
+<tr>
+<td style="text-align:center">aplayer</td>
+<td style="text-align:center">【可选】加载Aplayer</td>
+</tr>
+<tr>
+<td style="text-align:center">keyworads</td>
+<td style="text-align:center">【可选】页面关键字</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3、文章页">3、文章页</h2>
+<p>创建命令为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章命令&quot;</span></span><br></pre></td></tr></table></figure>
+<p>同上述基础页介绍，具体属性等可参照下面的参考资料。</p>
+<h2 id="4、页面设置">4、页面设置</h2>
+<p>打开根目录下的***_config.yml***文件可以看到下面的属性：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#site</span></span><br><span class="line">title: (1)</span><br><span class="line">description: (2)</span><br><span class="line">author: (3)</span><br><span class="line">language: 默认en,可修改</span><br><span class="line">email: <span class="string">&#x27;邮箱地址&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>相应位置如下图：</p>
+<div align="center">
+    	<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/%E4%B8%8B%E8%BD%BD.png">  
+    	<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408212212.png">
+</div>
+后续会写对butterfly的美化过程。
+<h1>三、参考资料</h1>
+<p>【1】<a href="https://hexo.io/docs/">Hexo文档</a><br>
+【2】<a href="https://butterfly.js.org/posts/21cfbf15/">Jerry大佬教程</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
