@@ -111,6 +111,82 @@
       </tags>
   </entry>
   <entry>
+    <title>PicGo + Gitee 搭建免费图床</title>
+    <url>/2021/04/09/PicGo-Gitee-%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="1、前言">1、前言</h2>
+<p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
+<p>细思极恐啊！当图片数量众多，项目文件必然臃肿，部署到云端也就更加慢了。在网上查找解决方法时发现可以搭建 <em><strong>图床</strong></em>  ，顾名思义就是云端用于存储图片的服务器吧，<a href="http://xn--SM-pv2cohk92bfhaq68bfrqkgnrupuf4a.MS">网上现在主流图床有SM.MS</a>、腾讯云COS、Github图床、七牛、阿里云等，当然免费的图床主推Github和Gitee了，但是Github在国外时不时无法连接，而且速度肯定没有国内的码云快了，当然使用阿里云和腾讯云那些就不比了（白嫖真香！）。所以这里就采用了 <u><em><strong>Gitee + PicGo</strong></em></u> 搭建自己的图床。</p>
+<p>注：使用码云搭建的图床具有对图片大小的限制，超过1MB大小的图片需要登录才能进行显示，因此这里提供一个用于压缩图片的网站：</p>
+<p><em><strong><a href="https://tinypng.com/">TingPNG:<u>压缩图片</u></a></strong></em></p>
+<h2 id="2、合成材料">2、合成材料</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">码云（Gitee）账号，没有的可以创建</th>
+<th><a href="https://gitee.com/">https://gitee.com/</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PicGo软件</td>
+<td><a href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.0-beta.5">https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.0-beta.5</a></td>
+</tr>
+</tbody>
+</table>
+<p>注：<a href="https://github.com/Molunerfinn/PicGo">PicGo开源项目地址，可以查看使用文档</a></p>
+<h2 id="3、Gitee准备">3、Gitee准备</h2>
+<p>类似于Github，先创建一个仓库，这里姑且命名为images，在该仓库中创建一个文件夹用于存放图片（也可以不创建），这里使用img作为文件夹名称。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409203754.png" alt="alt 示例"></p>
+<p>创建仓库时需要添加开源许可证啥的，跟着走就行，记得“是否开源”选择“公开”。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409204152.png" alt="alt acejha"></p>
+<p>这些结束后，需要创建一个token，下面会用到这个私人令牌，具体方法为：“个人主页→个人设置→私人令牌→生成新令牌”，添加描述后默认勾选提交即可，复制到剪贴板备用。在私人令牌管理界面可以对令牌进行删除、修改和重新生成等操作。</p>
+<h2 id="4、PicGo配置">4、PicGo配置</h2>
+<p>安装好对应系统的PicGO后，在插件设置中找到Gitee-uploader插件安装，注意安装后重启软件。在正确安装的情况下，重启应用打开图床设置可以找到gitee选项。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205044.png" alt="alt jhhg"></p>
+<p>gitee设置界面，相关参数如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">repo</th>
+<th style="text-align:center">【必需】仓库名，见上文图片注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">master</td>
+<td style="text-align:center">【可选】默认master</td>
+</tr>
+<tr>
+<td style="text-align:center">token</td>
+<td style="text-align:center">【必需】上文中生成的令牌</td>
+</tr>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">【可选】如果上文创建的话，可填img；反之可不填</td>
+</tr>
+<tr>
+<td style="text-align:center">customPath和customUrl</td>
+<td style="text-align:center">无需配置</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205324.png" alt="alt shiji"></p>
+<p>点击确定和设为默认图床即可。</p>
+<h2 id="5、说明">5、说明</h2>
+<p>在上传区，可以选择拖拽上传，也可以点击剪贴板上传直接将截图上传，上传成功的话会有系统消息提醒。同时，在下方可以选择返回值的格式，返回值会在剪贴板中保留，在编写文档时直接粘贴即可。相册中可以查看已经上传的图片，香的一批啊有木有！</p>
+<p>最后附上一个我个人经常选择图片的网站：<a href="https://beta.bz.zzzmh.cn/index">极简壁纸</a></p>
+<p>参考：<a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
+]]></content>
+      <categories>
+        <category>Gitee</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>图床</tag>
+        <tag>Gitee</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/04/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
