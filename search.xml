@@ -3,42 +3,31 @@
   <entry>
     <title>Hexo 建站笔记</title>
     <url>/2021/04/08/Hexo-%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1>一、搭建Hexo框架</h1>
-<p>本文基于windows操作系统搭建，hexo的相关操作可以用cmd命令台进行，也可以用下面安装的Git进行（推荐）；关于hexo主题的相关美化见后续文章，该系列可能会保持更新。另：本人也作为刚接触这里的新手，在文章中主要总结个人建站过程中的参考所得，望有不对的地方不吝赐教！</p>
-<h2 id="1、设置淘宝镜像">1、设置淘宝镜像</h2>
-<p>由于在windows上使用npm下载时可能会速度过慢，所以这里改为淘宝镜像网站：</p>
+    <content><![CDATA[<h1 id="一、搭建Hexo框架"><a href="#一、搭建Hexo框架" class="headerlink" title="一、搭建Hexo框架"></a>一、搭建Hexo框架</h1><p>本文基于windows操作系统搭建，hexo的相关操作可以用cmd命令台进行，也可以用下面安装的Git进行（推荐）；关于hexo主题的相关美化见后续文章，该系列可能会保持更新。另：本人也作为刚接触这里的新手，在文章中主要总结个人建站过程中的参考所得，望有不对的地方不吝赐教！</p>
+<h2 id="1、设置淘宝镜像"><a href="#1、设置淘宝镜像" class="headerlink" title="1、设置淘宝镜像"></a>1、设置淘宝镜像</h2><p>由于在windows上使用npm下载时可能会速度过慢，所以这里改为淘宝镜像网站：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="2、安装Git">2、安装Git</h2>
-<p>Git官网地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
+<h2 id="2、安装Git"><a href="#2、安装Git" class="headerlink" title="2、安装Git"></a>2、安装Git</h2><p>Git官网地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
 <p>安装过程无脑“下一步”即可。</p>
-<h2 id="3、安装Node-js">3、安装Node.js</h2>
-<p>Node.js官网：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<h2 id="3、安装Node-js"><a href="#3、安装Node-js" class="headerlink" title="3、安装Node.js"></a>3、安装Node.js</h2><p>Node.js官网：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
 <p>这里推荐安装LTS(长期支持)版，选择对应的系统版本即可。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408-01.png" alt="image-20210408184444633"></p>
-<h2 id="4、安装Hexo">4、安装Hexo</h2>
-<p>可以自行创建目录，名称随意，例如D:\Hexo\myblog，并在myblog文件夹右键使用Git bash here(或者cmd进入该文件夹)，命令行输入：</p>
+<h2 id="4、安装Hexo"><a href="#4、安装Hexo" class="headerlink" title="4、安装Hexo"></a>4、安装Hexo</h2><p>可以自行创建目录，名称随意，例如D:\Hexo\myblog，并在myblog文件夹右键使用Git bash here(或者cmd进入该文件夹)，命令行输入：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment">#初始化博客</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment">#Hexo三连,分别为清空生成文件、生成网站文件、启动本地预览</span></span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<p>此时若没有错误情况，由于hexo默认位于4000端口开启，则可以在浏览器中打开<em><strong>localhost:4000</strong></em>，就可以看到已经初始化的Hexo博客，默认产生第一篇文章Hello world!此外也可以更换端口使用命令  <strong>hexo s -p 端口号</strong>  即可。</p>
-<h2 id="5、博客部署">5、博客部署</h2>
-<p>由于我个人搭建的时候服务器仍未达到备案的期限，所以这里介绍将个人博客部署到github上面，后续若部署到个人域名时再进行更新。<br>
-首先，登录github创建一个新的仓库，并将仓库名命名为  <em><strong><a href="http://xn--eqr924avxo.github.io">用户名.github.io</a></strong></em>，注意这里仓库的名字是固定格式！！！<br>
-打开博客根目录（Hexo/myblog)下的根配置文件  <em><strong>_config.yml</strong></em>  文件找到deploy项，修改如下代码：</p>
+<p>此时若没有错误情况，由于hexo默认位于4000端口开启，则可以在浏览器中打开<strong><em>localhost:4000</em></strong>，就可以看到已经初始化的Hexo博客，默认产生第一篇文章Hello world!此外也可以更换端口使用命令  <strong>hexo s -p 端口号</strong>  即可。</p>
+<h2 id="5、博客部署"><a href="#5、博客部署" class="headerlink" title="5、博客部署"></a>5、博客部署</h2><p>由于我个人搭建的时候服务器仍未达到备案的期限，所以这里介绍将个人博客部署到github上面，后续若部署到个人域名时再进行更新。<br>首先，登录github创建一个新的仓库，并将仓库名命名为  <strong><em>用户名.github.io</em></strong>，注意这里仓库的名字是固定格式！！！<br>打开博客根目录（Hexo/myblog)下的根配置文件  <strong><em>_config.yml</em></strong>  文件找到deploy项，修改如下代码：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">   repo: https://github.com/用户名/仓库名</span><br><span class="line">   <span class="comment"># 如Https://github.com/zhangsan/zhangsan.github.io</span></span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure>
 <p>注： 注意在本博客几乎所有配置文件中，冒号之后都留有空格</p>
-<p>在进行上传之前，需要先在Git bash中进行对<strong><a href="http://user.name">user.name</a></strong>和<strong>user.email</strong>的设置，如下：</p>
+<p>在进行上传之前，需要先在Git bash中进行对<strong>user.name</strong>和<strong>user.email</strong>的设置，如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Github用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;GitHub绑定邮箱&quot;</span></span><br><span class="line"><span class="comment">#最后再进行上传</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>他喵的现在Github时不时登录不上去，所以在进行hexo d部署的时候也经常会出现超时的错误，还是建议部署到自己的域名上去，后续部署时会对该文章进行更新的。</p>
-<h1>二、基础配置</h1>
-<h2 id="1、主题设置">1、主题设置</h2>
-<p>hexo提供了大量可选的主题，参考网站：<a href="https://hexo.io/themes/">Hexo主题</a></p>
-<p>在根目录配置文件中可以设置主题，这里以butterfly主题为例，修改<em><strong>theme</strong></em>字条即可：<br>
-<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408204749.png" alt="alt 主题设置"></p>
-<p>在上述网站或其他途径选择主题后需要将主题文件保存到**/themes**目录下，例如：</p>
+<h1 id="二、基础配置"><a href="#二、基础配置" class="headerlink" title="二、基础配置"></a>二、基础配置</h1><h2 id="1、主题设置"><a href="#1、主题设置" class="headerlink" title="1、主题设置"></a>1、主题设置</h2><p>hexo提供了大量可选的主题，参考网站：<a href="https://hexo.io/themes/">Hexo主题</a></p>
+<p>在根目录配置文件中可以设置主题，这里以butterfly主题为例，修改<strong><em>theme</em></strong>字条即可：<br><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408204749.png" alt="alt 主题设置"></p>
+<p>在上述网站或其他途径选择主题后需要将主题文件保存到<strong>/themes</strong>目录下，例如：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装渲染插件</span></span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-<h2 id="2、基础页">2、基础页</h2>
-<p>hexo创建页面的命令如下：</p>
+<h2 id="2、基础页"><a href="#2、基础页" class="headerlink" title="2、基础页"></a>2、基础页</h2><p>hexo创建页面的命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page 页面名称</span><br></pre></td></tr></table></figure>
-<p>创建成功后会在命令行中提示新建页面的位置，对文件<strong><a href="http://index.md">index.md</a></strong>进行编辑可以修改页面布局。对不同主题，可以查看相应主题的文档使用，这里以butterfly主题对页面属性为例，如下表：</p>
+<p>创建成功后会在命令行中提示新建页面的位置，对文件<strong>index.md</strong>进行编辑可以修改页面布局。对不同主题，可以查看相应主题的文档使用，这里以butterfly主题对页面属性为例，如下表：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -85,22 +74,18 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3、文章页">3、文章页</h2>
-<p>创建命令为：</p>
+</div>
+<h2 id="3、文章页"><a href="#3、文章页" class="headerlink" title="3、文章页"></a>3、文章页</h2><p>创建命令为：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章命令&quot;</span></span><br></pre></td></tr></table></figure>
 <p>同上述基础页介绍，具体属性等可参照下面的参考资料。</p>
-<h2 id="4、页面设置">4、页面设置</h2>
-<p>打开根目录下的***_config.yml***文件可以看到下面的属性：</p>
+<h2 id="4、页面设置"><a href="#4、页面设置" class="headerlink" title="4、页面设置"></a>4、页面设置</h2><p>打开根目录下的<strong><em>_config.yml</em></strong>文件可以看到下面的属性：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#site</span></span><br><span class="line">title: (1)</span><br><span class="line">description: (2)</span><br><span class="line">author: (3)</span><br><span class="line">language: 默认en,可修改</span><br><span class="line">email: <span class="string">&#x27;邮箱地址&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>相应位置如下图：</p>
-<div align="center">
-    	<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/%E4%B8%8B%E8%BD%BD.png">  
-    	<img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408212212.png">
-</div>
-后续会写对butterfly的美化过程。
-<h1>三、参考资料</h1>
-<p>【1】<a href="https://hexo.io/docs/">Hexo文档</a><br>
-【2】<a href="https://butterfly.js.org/posts/21cfbf15/">Jerry大佬教程</a></p>
+<p><div align="center">
+        <img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/%E4%B8%8B%E8%BD%BD.png">  
+        <img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408212212.png">
+</div><br>后续会写对butterfly的美化过程。</p>
+<h1 id="三、参考资料"><a href="#三、参考资料" class="headerlink" title="三、参考资料"></a>三、参考资料</h1><p>【1】<a href="https://hexo.io/docs/">Hexo文档</a><br>【2】<a href="https://butterfly.js.org/posts/21cfbf15/">Jerry大佬教程</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -113,12 +98,11 @@
   <entry>
     <title>PicGo + Gitee 搭建免费图床</title>
     <url>/2021/04/09/PicGo-Gitee-%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="1、前言">1、前言</h2>
-<p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
-<p>细思极恐啊！当图片数量众多，项目文件必然臃肿，部署到云端也就更加慢了。在网上查找解决方法时发现可以搭建 <em><strong>图床</strong></em>  ，顾名思义就是云端用于存储图片的服务器吧，<a href="http://xn--SM-pv2cohk92bfhaq68bfrqkgnrupuf4a.MS">网上现在主流图床有SM.MS</a>、腾讯云COS、Github图床、七牛、阿里云等，当然免费的图床主推Github和Gitee了，但是Github在国外时不时无法连接，而且速度肯定没有国内的码云快了，当然使用阿里云和腾讯云那些就不比了（白嫖真香！）。所以这里就采用了 <u><em><strong>Gitee + PicGo</strong></em></u> 搭建自己的图床。</p>
+    <content><![CDATA[<h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
+<p>细思极恐啊！当图片数量众多，项目文件必然臃肿，部署到云端也就更加慢了。在网上查找解决方法时发现可以搭建 <strong><em>图床</em></strong>  ，顾名思义就是云端用于存储图片的服务器吧，网上现在主流图床有SM.MS、腾讯云COS、Github图床、七牛、阿里云等，当然免费的图床主推Github和Gitee了，但是Github在国外时不时无法连接，而且速度肯定没有国内的码云快了，当然使用阿里云和腾讯云那些就不比了（白嫖真香！）。所以这里就采用了 <u><strong><em>Gitee + PicGo</em></strong></u> 搭建自己的图床。</p>
 <p>注：使用码云搭建的图床具有对图片大小的限制，超过1MB大小的图片需要登录才能进行显示，因此这里提供一个用于压缩图片的网站：</p>
-<p><em><strong><a href="https://tinypng.com/">TingPNG:<u>压缩图片</u></a></strong></em></p>
-<h2 id="2、合成材料">2、合成材料</h2>
+<p><strong><em><a href="https://tinypng.com/">TingPNG:<u>压缩图片</u></a></em></strong></p>
+<h2 id="2、合成材料"><a href="#2、合成材料" class="headerlink" title="2、合成材料"></a>2、合成材料</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -133,17 +117,17 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>注：<a href="https://github.com/Molunerfinn/PicGo">PicGo开源项目地址，可以查看使用文档</a></p>
-<h2 id="3、Gitee准备">3、Gitee准备</h2>
-<p>类似于Github，先创建一个仓库，这里姑且命名为images，在该仓库中创建一个文件夹用于存放图片（也可以不创建），这里使用img作为文件夹名称。</p>
+<h2 id="3、Gitee准备"><a href="#3、Gitee准备" class="headerlink" title="3、Gitee准备"></a>3、Gitee准备</h2><p>类似于Github，先创建一个仓库，这里姑且命名为images，在该仓库中创建一个文件夹用于存放图片（也可以不创建），这里使用img作为文件夹名称。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409203754.png" alt="alt 示例"></p>
 <p>创建仓库时需要添加开源许可证啥的，跟着走就行，记得“是否开源”选择“公开”。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409204152.png" alt="alt acejha"></p>
 <p>这些结束后，需要创建一个token，下面会用到这个私人令牌，具体方法为：“个人主页→个人设置→私人令牌→生成新令牌”，添加描述后默认勾选提交即可，复制到剪贴板备用。在私人令牌管理界面可以对令牌进行删除、修改和重新生成等操作。</p>
-<h2 id="4、PicGo配置">4、PicGo配置</h2>
-<p>安装好对应系统的PicGO后，在插件设置中找到Gitee-uploader插件安装，注意安装后重启软件。在正确安装的情况下，重启应用打开图床设置可以找到gitee选项。</p>
+<h2 id="4、PicGo配置"><a href="#4、PicGo配置" class="headerlink" title="4、PicGo配置"></a>4、PicGo配置</h2><p>安装好对应系统的PicGO后，在插件设置中找到Gitee-uploader插件安装，注意安装后重启软件。在正确安装的情况下，重启应用打开图床设置可以找到gitee选项。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205044.png" alt="alt jhhg"></p>
 <p>gitee设置界面，相关参数如下表：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -170,10 +154,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205324.png" alt="alt shiji"></p>
 <p>点击确定和设为默认图床即可。</p>
-<h2 id="5、说明">5、说明</h2>
-<p>在上传区，可以选择拖拽上传，也可以点击剪贴板上传直接将截图上传，上传成功的话会有系统消息提醒。同时，在下方可以选择返回值的格式，返回值会在剪贴板中保留，在编写文档时直接粘贴即可。相册中可以查看已经上传的图片，香的一批啊有木有！</p>
+<h2 id="5、说明"><a href="#5、说明" class="headerlink" title="5、说明"></a>5、说明</h2><p>在上传区，可以选择拖拽上传，也可以点击剪贴板上传直接将截图上传，上传成功的话会有系统消息提醒。同时，在下方可以选择返回值的格式，返回值会在剪贴板中保留，在编写文档时直接粘贴即可。相册中可以查看已经上传的图片，香的一批啊有木有！</p>
 <p>最后附上一个我个人经常选择图片的网站：<a href="https://beta.bz.zzzmh.cn/index">极简壁纸</a></p>
 <p>参考：<a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
 ]]></content>
@@ -187,22 +171,268 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/04/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>密码学笔记之（一） 古典密码</title>
+    <url>/2021/04/17/%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%EF%BC%88%E4%B8%80%EF%BC%89-%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/</url>
+    <content><![CDATA[<hr>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>密码学的目的是为了使两个处于不安全信道中通信的双方，在经过某种加密方法后，用过一种别人无法理解通信内容的方式进行通信。不安全信道是普遍内存在的，而绝对的加密是不存在的，本文将跟随我密码学课程的进行，对几种古典密码进行介绍和实现。</p>
+<p><strong><em>密码体制：</em></strong></p>
+<p>一个密码体制是满足以下条件的五元组$(P,C,K,ε,D)$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">P</th>
+<th style="text-align:center">明文组成的有限集</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">密文组成的有限集</td>
+</tr>
+<tr>
+<td style="text-align:center">K</td>
+<td style="text-align:center">密钥空间</td>
+</tr>
+<tr>
+<td style="text-align:center">ε</td>
+<td style="text-align:center">加密规则</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">解密规则</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>对每一个$k∈K，e_k∈ε，d_k∈D$且$e_k:P→C,d_k:C→P$均满足对于任意$x∈P$,有$d_k(e_k(x))=x$。</p>
+<hr>
+<h2 id="移位密码"><a href="#移位密码" class="headerlink" title="移位密码"></a>移位密码</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>移位密码的基础是数论中的模运算。基本定义为</p>
+<ul>
+<li><p>假设a和b均为整数，m是一正整数。若 $m | b-a$，则可将其表示为$a≡b(mod\,m)$，式 $a≡b(mod\;m)$，正整数$m$称为模数。</p>
+</li>
+<li><p>接下来的移位密码基于模26所得的完全剩余系进行实现。</p>
+</li>
+</ul>
+<h3 id="密码体制"><a href="#密码体制" class="headerlink" title="密码体制"></a>密码体制</h3><p>令$P=C=K=Z_{26}$。对于$0\leq K\leq 25$，任意$x,y\in Z_{26}$，定义：$e_k(x)=(x+K)mod\;26$和$d_k(y)=(y-K)mod\;26$。当$K=3$时此密码称为凯撒密码。26个英文字符分别对应$Z_{26}$中的$0-25$。</p>
+<p>加密过程为首先将明文转化为对应的整数串，再根据$K$的值对整数串进行移位处理，最后将处理后的整数串转化为密文对应的英文字符即可。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shift_E</span><span class="params">()</span>    <span class="comment">//加密实现</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入明文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;p);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入移位密钥：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            c[i]=((p[i]-<span class="string">&#x27;A&#x27;</span>)+k)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            c[i]=((p[i]-<span class="string">&#x27;a&#x27;</span>)+k)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shift_D</span><span class="params">()</span>    <span class="comment">//解密实现</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入移位密钥：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">            p[i]=((c[i]-<span class="string">&#x27;A&#x27;</span>)-k+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;<span class="comment">//加上26以解决模的结果为负的情况</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">            p[i]=((c[i]-<span class="string">&#x27;a&#x27;</span>)-k+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,p[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例实现效果如下：</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210417185750.png" alt="alt 移位密码实现"></p>
+<h2 id="代换密码"><a href="#代换密码" class="headerlink" title="代换密码"></a>代换密码</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li><p>移位密码是代换密码的一种特殊情况，其只是包含了$26!\;$置换中的26种情况，下面的代换密码可以理解为任一明文字符对应另一密文字符，故存在$26!\;$种情况。</p>
+</li>
+<li><p>加密函数对应一种置换  $\pi\;$，而解密函数是对应的逆置换。</p>
+</li>
+</ul>
+<h3 id="密码体制-1"><a href="#密码体制-1" class="headerlink" title="密码体制"></a>密码体制</h3><ul>
+<li>令$P=C=Z_{26}$。$K$是由$26$个数字$0,1…,25$的所有可能的置换组成。对任意的置换$\pi\in K$，定义：$e_{\pi}(x)=\pi(x)$和$d_{\pi}(y)=\pi^{-1}(y)$，这里$\pi^{-1}$表示置换$\pi$的逆置换。</li>
+</ul>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><ul>
+<li>这里任意取一置换$\pi$，具体置换内容见下表（小写字母表示明文，大写字母表示密文）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">d</th>
+<th style="text-align:center">e</th>
+<th style="text-align:center">f</th>
+<th style="text-align:center">g</th>
+<th style="text-align:center">h</th>
+<th style="text-align:center">i</th>
+<th style="text-align:center">j</th>
+<th style="text-align:center">k</th>
+<th style="text-align:center">l</th>
+<th style="text-align:center">m</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">X</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">H</td>
+<td style="text-align:center">P</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">W</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">T</td>
+</tr>
+<tr>
+<td style="text-align:center">n</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">q</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">s</td>
+<td style="text-align:center">t</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">v</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">z</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">L</td>
+<td style="text-align:center">R</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">M</td>
+<td style="text-align:center">U</td>
+<td style="text-align:center">E</td>
+<td style="text-align:center">K</td>
+<td style="text-align:center">J</td>
+<td style="text-align:center">D</td>
+<td style="text-align:center">I</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>则对应的逆置换$\pi^{-1}$ 为下表：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+<th style="text-align:center">E</th>
+<th style="text-align:center">F</th>
+<th style="text-align:center">G</th>
+<th style="text-align:center">H</th>
+<th style="text-align:center">I</th>
+<th style="text-align:center">J</th>
+<th style="text-align:center">K</th>
+<th style="text-align:center">L</th>
+<th style="text-align:center">M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td style="text-align:center">l</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">v</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center">z</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">t</td>
+</tr>
+<tr>
+<td>N</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">P</td>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">R</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">T</td>
+<td style="text-align:center">U</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">W</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Z</td>
+</tr>
+<tr>
+<td>b</td>
+<td style="text-align:center">g</td>
+<td style="text-align:center">f</td>
+<td style="text-align:center">j</td>
+<td style="text-align:center">q</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">s</td>
+<td style="text-align:center">k</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">i</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>代码展示如下：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">map&lt;<span class="keyword">char</span>, <span class="keyword">char</span>&gt; E_k = &#123; &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;X&#x27;</span>&#125; ,&#123;<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;N&#x27;</span>&#125;,&#123;<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>&#125;,&#123;<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;A&#x27;</span>&#125;,&#123;<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;H&#x27;</span>&#125;,&#123;<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;P&#x27;</span>&#125;,&#123;<span class="string">&#x27;g&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;,&#123;<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;G&#x27;</span>&#125;,&#123;<span class="string">&#x27;i&#x27;</span>,<span class="string">&#x27;Z&#x27;</span>&#125;,&#123;<span class="string">&#x27;j&#x27;</span>,<span class="string">&#x27;Q&#x27;</span>&#125;,&#123;<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;W&#x27;</span>&#125;,&#123;<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;B&#x27;</span>&#125;,&#123;<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;T&#x27;</span>&#125;,&#123;<span class="string">&#x27;n&#x27;</span>,<span class="string">&#x27;S&#x27;</span>&#125;,&#123;<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;F&#x27;</span>&#125;,&#123;<span class="string">&#x27;p&#x27;</span>,<span class="string">&#x27;L&#x27;</span>&#125;,&#123;<span class="string">&#x27;q&#x27;</span>,<span class="string">&#x27;R&#x27;</span>&#125;,&#123;<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;C&#x27;</span>&#125;,&#123;<span class="string">&#x27;s&#x27;</span>,<span class="string">&#x27;V&#x27;</span>&#125;,&#123;<span class="string">&#x27;t&#x27;</span>,<span class="string">&#x27;M&#x27;</span>&#125;,&#123;<span class="string">&#x27;u&#x27;</span>,<span class="string">&#x27;U&#x27;</span>&#125;,&#123;<span class="string">&#x27;v&#x27;</span>,<span class="string">&#x27;E&#x27;</span>&#125;,&#123;<span class="string">&#x27;w&#x27;</span>,<span class="string">&#x27;K&#x27;</span>&#125;,&#123;<span class="string">&#x27;x&#x27;</span>,<span class="string">&#x27;J&#x27;</span>&#125;,&#123;<span class="string">&#x27;y&#x27;</span>,<span class="string">&#x27;D&#x27;</span>&#125;,&#123;<span class="string">&#x27;z&#x27;</span>,<span class="string">&#x27;I&#x27;</span>&#125; &#125;;</span><br><span class="line">map&lt;<span class="keyword">char</span>,<span class="keyword">char</span>&gt; C_K=&#123;&#123;<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;d&#x27;</span>&#125;,&#123;<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;l&#x27;</span>&#125;,&#123;<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;r&#x27;</span>&#125;,&#123;<span class="string">&#x27;D&#x27;</span>,<span class="string">&#x27;y&#x27;</span>&#125;,&#123;<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;v&#x27;</span>&#125;,&#123;<span class="string">&#x27;F&#x27;</span>,<span class="string">&#x27;o&#x27;</span>&#125;,&#123;<span class="string">&#x27;G&#x27;</span>,<span class="string">&#x27;h&#x27;</span>&#125;,&#123;<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;e&#x27;</span>&#125;,&#123;<span class="string">&#x27;I&#x27;</span>,<span class="string">&#x27;z&#x27;</span>&#125;,&#123;<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;x&#x27;</span>&#125;,&#123;<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;w&#x27;</span>&#125;,&#123;<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;p&#x27;</span>&#125;,&#123;<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;t&#x27;</span>&#125;,&#123;<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;b&#x27;</span>&#125;,&#123;<span class="string">&#x27;O&#x27;</span>,<span class="string">&#x27;g&#x27;</span>&#125;,&#123;<span class="string">&#x27;P&#x27;</span>,<span class="string">&#x27;f&#x27;</span>&#125;,&#123;<span class="string">&#x27;Q&#x27;</span>,<span class="string">&#x27;j&#x27;</span>&#125;,&#123;<span class="string">&#x27;R&#x27;</span>,<span class="string">&#x27;q&#x27;</span>&#125;,&#123;<span class="string">&#x27;S&#x27;</span>,<span class="string">&#x27;n&#x27;</span>&#125;,&#123;<span class="string">&#x27;T&#x27;</span>,<span class="string">&#x27;m&#x27;</span>&#125;,&#123;<span class="string">&#x27;U&#x27;</span>,<span class="string">&#x27;u&#x27;</span>&#125;,&#123;<span class="string">&#x27;V&#x27;</span>,<span class="string">&#x27;s&#x27;</span>&#125;,&#123;<span class="string">&#x27;W&#x27;</span>,<span class="string">&#x27;k&#x27;</span>&#125;,&#123;<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;a&#x27;</span>&#125;,&#123;<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;,&#123;<span class="string">&#x27;Z&#x27;</span>,<span class="string">&#x27;i&#x27;</span>&#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sub_E</span><span class="params">()</span>  <span class="comment">//加密实现</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> p[<span class="number">100</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入明文串：&quot;</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, &amp;p);</span><br><span class="line">	<span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(p); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">auto</span> x = E_k.<span class="built_in">find</span>(p[i]);</span><br><span class="line">		c[i] = x-&gt;second;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;密文串为：&quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(c); i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, c[i]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sub_D</span><span class="params">()</span>  <span class="comment">//解密实现</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c[<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> x=C_K.<span class="built_in">find</span>(c[i]);</span><br><span class="line">        p[i]=x-&gt;second;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;明文串为：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,p[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例实现效果如下：</li>
+</ul>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210417235745.png" alt="alt 代换密码"></p>
+<h2 id="仿射密码"><a href="#仿射密码" class="headerlink" title="仿射密码"></a>仿射密码</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li>引理1：设$a\in Z_m$ ，则对于任意的$b\in Z_m$ ，同余方程$ax\equiv b(mod\;m)$有唯一解$x\in Z_m$的充分必要条件是$gcd(a,m)=1$。</li>
+<li>引理2：假定$m=\prod_{i=1}^np_i^{e_i}$，这里$p_i$均为素数且互不相同，$e_i&gt;0,1\leq i\leq n$。则关于其欧拉函数$\varphi(m)=\prod_{i=1}^n(p_i^{e_i}-p_i^{e_i-1})$。</li>
+<li>定义1：设$a\in Z_m$，若存在$a^{‘}\in Z_m$，使得$aa^{‘}\equiv a{‘}a\equiv 1(mod\;m)$，则$a^{‘}$称为$a$ 在$Z_m$ 上的乘法逆，将其记为$a^{-1}mod\;m$。在$m$是固定的情形下，也可将其记为$a^{-1}$。</li>
+</ul>
+<h3 id="密码体制-2"><a href="#密码体制-2" class="headerlink" title="密码体制"></a>密码体制</h3><ul>
+<li><p>令$P=C=Z_{26}$，且$K={(a,b)\in Z_{26}\times Z_{26}:gcd(a,26)=1}$</p>
+<p>对任意的$K=(a,b)\in K,\;x,y\in Z_{26}$，定义$e_k(x)=(ax+b)mod\;26$和$d_k(y)=a^{-1}(y-b)mod\;26$。</p>
+</li>
+<li><p>$密钥K=(a,b),接下来以书本上的K=(7,3)举例进行代码实现$。</p>
+</li>
+</ul>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><ul>
+<li><p>加密函数如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Affine_E</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">char</span> p[<span class="number">100</span>],c[<span class="number">100</span>];</span><br><span class="line">      <span class="keyword">int</span> a,b;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;请输入明文串：&quot;</span>);</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;p);</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;请输入密钥K：&quot;</span>);</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">              c[i]=(a*(p[i]-<span class="string">&#x27;A&#x27;</span>)+b)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">              c[i]=(a*(p[i]-<span class="string">&#x27;a&#x27;</span>)+b)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;密文串为：&quot;</span>);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,c[i]);</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加密效果如下：<br><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210418125910.png" alt="alt 仿射密码加密"></p>
+</li>
+<li><p>解密算法如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Affine_D</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">10</span>],c[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> a,b,r;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密钥K：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="keyword">for</span>(r=<span class="number">0</span>;r&lt;<span class="number">26</span>;r++)</span><br><span class="line">        <span class="keyword">if</span>(a*r%<span class="number">26</span>==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">            p[i]=r*(c[i]-<span class="string">&#x27;A&#x27;</span>-b+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">            p[i]=r*(c[i]-<span class="string">&#x27;a&#x27;</span>-b+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;密文串为：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,p[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>解密效果如下：<br><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210418131238.png" alt="alt 仿射密码解密"></li>
+</ul>
+<h2 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h2><h3 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li>前面介绍的可以归结为单表代换密码，一旦密钥被选定，则每个字母对应的数字都被加密变换成对应的唯一数字，很容易被破解。下面介绍的维吉尼亚密码$(Vigenere\; Cipher)$是一种多表代换密码。</li>
+<li>维吉尼亚密码一次加密$m\;$个字符，对应的密钥字为$m$个字符组成的串，对明文进行分组处理，处理的结果仍在$Z_{26}\;$下的运算。</li>
+</ul>
+<h3 id="密码体制-3"><a href="#密码体制-3" class="headerlink" title="密码体制"></a>密码体制</h3><ul>
+<li>设$m\;$是一个正整数。定义$P=C=K=(Z_{26})^m$。对任意的密钥$K=(k_1,k_2,\cdots ,k_m)$，定义$e_k(x_1,x_2,\cdots ,x_m)=(x_1+k_1,x_2+k_2,\cdots ,x_m+k_m)$和$d_k(y_1,y_2,\cdots ,y_m)=(y_1-k_1,y_2-k_2,\cdots ,y_m-k_m)$。且以上所有运算都是在$Z_{26}$上进行。</li>
+<li>维吉尼亚密码空间大小为$26^m$，所以即使$m$的值很小，穷尽密钥搜索算法也需要很长的时间。<h3 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h3></li>
+<li><p>假设这里$m=6$，密钥字为$CIPHER$，其对应的数字串$K=(2,8,15,7,4,17)$。要加密的明文为：$WelcomeToHuazhongUniversityOfScienceAndTechnology$。首先将明文串转化为对应的数字串，再与对应的密钥数字进行相加后模26运算，再将对应的数字串转化为字符串即可。</p>
+</li>
+<li><p>加密代码实现：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Vig_E</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="keyword">char</span> SecertKey[<span class="number">10</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密钥字长度和密钥字串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %s&quot;</span>,&amp;m,&amp;SecertKey);</span><br><span class="line">    <span class="comment">//将密钥字串转化为数字串</span></span><br><span class="line">    <span class="keyword">int</span> NumberKey[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(SecertKey);i++)</span><br><span class="line">        NumberKey[i]=SecertKey[i]-<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">100</span>],c[<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入明文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;p);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;密文串为：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(p);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">            c[i]=(p[i]-<span class="string">&#x27;A&#x27;</span>+NumberKey[i%m])%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((p[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(p[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">            c[i]=(p[i]-<span class="string">&#x27;a&#x27;</span>+NumberKey[i%m])%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加密效果如下：</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210418142907.png" alt="alt 维吉尼亚密码加密"></p>
+</li>
+<li><p>解密代码实现：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Vig_D</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="keyword">char</span> SecertKey[<span class="number">10</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密钥字长度和密钥字串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %s&quot;</span>,&amp;m,&amp;SecertKey);</span><br><span class="line">    <span class="comment">//将密钥字串转化为数字串</span></span><br><span class="line">    <span class="keyword">int</span> NumberKey[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(SecertKey);i++)</span><br><span class="line">        NumberKey[i]=SecertKey[i]-<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="keyword">char</span> p[<span class="number">100</span>],c[<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入密文串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;明文串为：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">strlen</span>(c);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;A&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;Z&#x27;</span>))</span><br><span class="line">            p[i]=(c[i]-<span class="string">&#x27;A&#x27;</span>-NumberKey[i%m]+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((c[i]&gt;=<span class="string">&#x27;a&#x27;</span>)&amp;&amp;(c[i]&lt;=<span class="string">&#x27;z&#x27;</span>))</span><br><span class="line">            p[i]=(c[i]-<span class="string">&#x27;a&#x27;</span>-NumberKey[i%m]+<span class="number">26</span>)%<span class="number">26</span>+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解密效果如下：</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210418143203.png" alt="alt 维吉尼亚密码解密"></p>
+</li>
+</ul>
+<h2 id="希尔密码"><a href="#希尔密码" class="headerlink" title="希尔密码"></a>希尔密码</h2><h3 id="介绍-4"><a href="#介绍-4" class="headerlink" title="介绍"></a>介绍</h3><p>- </p>
 ]]></content>
+      <categories>
+        <category>密码学</category>
+      </categories>
+      <tags>
+        <tag>密码学</tag>
+        <tag>算法</tag>
+      </tags>
   </entry>
 </search>
