@@ -96,6 +96,62 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo部署到Gitee及相关问题</title>
+    <url>/2021/04/19/Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Gitee%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前一直都是写好文章后直接部署到Github上，但最近发现Github会经常性连接不上，这对于我这个希望即写即传的人来说实在是太难受了:sob:。后来想到之前将图床部署在Gitee上，那么能不能将博客也部署在Gitee上呢:smirk:？话不多说直接上手搜一手，果不其然是可以的:smirk:，由于Gitee是国内的，不存在说连不上的问题，所以直接决定动手部署了:muscle:！</p>
+<hr>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><ul>
+<li>类似于在Github上部署的操作，在Gitee上先创建一个用户名同名的仓库，创建仓库时，语言选择$html$，可以先不进行初始化，选择公开。</li>
+</ul>
+<h2 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h2><ul>
+<li><p>首先在博客根目录打开$Git\ Bash\ Here$,创建$SSH$公钥命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱地址&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;邮箱地址(同上一条命令)&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>注意：上面第三条命令中的$ssh-keygen$是连在一起的，没有空格！没有空格！没有空格！重要的事情说三遍，猛男落泪:cry::cry::cry:</em></strong></p>
+<p>上面命令进行时会提示公钥存储路径，一般情况下为  C:\Users\用户名.ssh ，查看目录可以发现 id_rsa和 id_rsa.pub​两个文件，其中id_rsa.pub正是我们需要的公钥。一路$Enter$下去即可。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419161954.png" alt="alt SSH公钥"></p>
+<p>最后成功的结果如下图：</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419162156.png" alt="alt 密钥成功生成"></p>
+</li>
+<li><p>接下来在Gitee中添加该公钥即可，具体方法为$“设置\rightarrow SSH公钥”$，添加公钥时公钥标题为仓库的名称，将上述生成的id_rsa.pub中的全部内容粘贴到其中即可。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419162626.png" alt="alt 添加密钥"></p>
+</li>
+<li><p>测试密钥连接：在控制台输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+<p>成功结果如下：</p>
+</li>
+</ul>
+<p><img src="C:\Users\15242\AppData\Roaming\Typora\typora-user-images\image-20210419162934552.png" alt="alt 密钥连接成功"></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><ul>
+<li><p>接下来修改根目录下的   _config.yml 文件即可，具体修改内容中的$repo$在仓库首页粘贴即可：</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419163409.png" alt="alt repo地址"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419163504.png" alt="alt 配置文件修改"></p>
+</li>
+<li><p>之后按照以前部署的命令一样，直接在清空缓存文件，重新生成后$hexo \ d\ $就行了。</p>
+</li>
+</ul>
+<h2 id="开启Gitee-Pages服务"><a href="#开启Gitee-Pages服务" class="headerlink" title="开启Gitee Pages服务"></a>开启Gitee Pages服务</h2><p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419163911.png" alt="alt Gitee Pages"></p>
+<ul>
+<li>选择强制使用Https后启动，启动成功后会得到一个地址：<br><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210419164119.png" alt="alt 网站地址"></li>
+<li>之后在_config.yml中将URL地址修改为该地址即可，需要注意的是每次更新($hexo\ d\ $)后，需要进入$Gitee\ Pages\ $服务进行更新即可。<h2 id="结言"><a href="#结言" class="headerlink" title="结言"></a>结言</h2></li>
+<li>到这里基本上已经部署好了，不过我在部署的时候遇到了一个问题，就是在本地预览正确的文章，部署到上面后再访问却缺失了部分内容，查看仓库中的Html文件代码正确，但是查看页面源代码却消失了！被谁吃了给我吐出来！:angry:。后来上网搜索之后找到了一个办法：清除浏览器缓存。一开始不信的我试了一下竟然成功了，好吧，我只能拍手成妙:expressionless:。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://blog.csdn.net/qq_38157825/article/details/112783631">Hexo 部署到 Gitee</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_43889439/article/details/92760952">解决git@gitee.com: Permission denied (publickey).</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo,Gitee</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Gitee</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PicGo + Gitee 搭建免费图床</title>
     <url>/2021/04/09/PicGo-Gitee-%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
@@ -166,8 +222,8 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>图床</tag>
         <tag>Gitee</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
