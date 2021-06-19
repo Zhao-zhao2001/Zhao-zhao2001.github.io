@@ -626,6 +626,9 @@
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/QQ%E6%88%AA%E5%9B%BE20210619170114.png" alt="alt 8"></p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/202106192111.png" alt="alt 9"></p>
 <p>完结撒花！！！</p>
+<p>$PS:\ $如果$HostA$与$Server2$连不同的话，记得用$iptables\ -F$关闭防火墙，用$iptables\ -L$查看防火墙状态全部为$Accept \ $即可。</p>
+<p>$PS:\ $打开$IP$转发使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sysctl net.ipv4.ip_forward=1 <span class="comment">#打开IP转发</span></span><br><span class="line">sudo sysctl net.ipv4.ip_forward=0 <span class="comment">#关闭IP转发</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>网络攻防</category>
