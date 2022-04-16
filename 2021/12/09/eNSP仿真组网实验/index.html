@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>eNSP仿真组网实验 | 穿越时空BB机</title><meta name="keywords" content="计网"><meta name="author" content="Zhao CP,1524276984@qq.com"><meta name="copyright" content="Zhao CP"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HUSTCSE计算机网络第三次实验，基于华为eNSP软件实现仿真组网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eNSP仿真组网实验">
+<meta property="og:url" content="https://zhao-zhao2001.gitee.io/2021/12/09/eNSP%E4%BB%BF%E7%9C%9F%E7%BB%84%E7%BD%91%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="穿越时空BB机">
+<meta property="og:description" content="HUSTCSE计算机网络第三次实验，基于华为eNSP软件实现仿真组网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/ddbf825676bf4842a1634e0382828f28.jpg">
+<meta property="article:published_time" content="2021-12-09T14:07:48.000Z">
+<meta property="article:modified_time" content="2021-12-09T14:07:48.000Z">
+<meta property="article:author" content="Zhao CP">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/ddbf825676bf4842a1634e0382828f28.jpg"><link rel="shortcut icon" href="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/self.png"><link rel="canonical" href="https://zhao-zhao2001.gitee.io/2021/12/09/eNSP%E4%BB%BF%E7%9C%9F%E7%BB%84%E7%BD%91%E5%AE%9E%E9%AA%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Zhao CP","link":"链接: ","source":"来源: 穿越时空BB机","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'eNSP仿真组网实验',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-09 22:07:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/ShouyeTouming.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="/css/Peng.css"><link rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" ><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script async src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/self.png" onerror="onerror=null;src='https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/ddbf825676bf4842a1634e0382828f28.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">穿越时空BB机</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">eNSP仿真组网实验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-09T14:07:48.000Z" title="发表于 2021-12-09 22:07:48">2021-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-09T14:07:48.000Z" title="更新于 2021-12-09 22:07:48">2021-12-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E9%AA%8C/%E8%AE%A1%E7%BD%91/">计网</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="eNSP仿真组网实验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr />
+<ul>
+<li>前言：找了一圈没有发现任何“前辈”的记录，因此这里打算记录一下自己写的过程（没有实现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>A</mi><mi>P</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;AP\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>，卷王的世界与我无瓜）。</li>
+</ul>
+<hr />
+<h3 id="拓扑图"><a class="markdownIt-Anchor" href="#拓扑图"></a> 拓扑图</h3>
+<p><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/20211209221144.png" alt="拓扑图" /></p>
+<p>网段的划分和拓扑图的设计都基于题目的要求，题目的背景为某丽岛学院的组网模拟。题目要求如下：<img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/20211209221345.png" alt="题目要求" /></p>
+<p>主机数量限制对于网段的划分：</p>
+<p><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/20211209221422.png" alt="主机数量" /></p>
+<h3 id="二层交换机配置"><a class="markdownIt-Anchor" href="#二层交换机配置"></a> 二层交换机配置</h3>
+<p>关于端的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>I</mi><mi>P</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;IP\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>、掩码、网关的配置就不再赘述。</p>
+<h4 id="数据中心服务器接入交换机"><a class="markdownIt-Anchor" href="#数据中心服务器接入交换机"></a> 数据中心服务器接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2112</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2112</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="网络靶场接入交换机"><a class="markdownIt-Anchor" href="#网络靶场接入交换机"></a> 网络靶场接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2111</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2111</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="教学实验室接入交换机"><a class="markdownIt-Anchor" href="#教学实验室接入交换机"></a> 教学实验室接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2116</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2116</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="教室接入交换机"><a class="markdownIt-Anchor" href="#教室接入交换机"></a> 教室接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2113</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2113</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="科研实验室接入交换机"><a class="markdownIt-Anchor" href="#科研实验室接入交换机"></a> 科研实验室接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2117</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2117</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2117</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="学生宿舍接入交换机"><a class="markdownIt-Anchor" href="#学生宿舍接入交换机"></a> 学生宿舍接入交换机</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2115</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2115</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 2115</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h3 id="三层交换机配置"><a class="markdownIt-Anchor" href="#三层交换机配置"></a> 三层交换机配置</h3>
+<p>三层交换机主要需要配置的除了上面的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>v</mi><mi>l</mi><mi>a</mi><mi>n</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;vlan\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>对应的借口外，还需要配置接口的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>I</mi><mi>P</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;IP\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>地址。</p>
+<h4 id="明德楼一楼数据中心"><a class="markdownIt-Anchor" href="#明德楼一楼数据中心"></a> 明德楼一楼数据中心</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>v</mi><mi>l</mi><mi>a</mi><mi>n</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;vlan\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vlan2112:10.12.162.1&#x2F;23</span><br><span class="line">vlan2111:10.12.160.1&#x2F;23</span><br><span class="line">vlan101:10.12.174.1&#x2F;24</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line"><span class="comment">#先配置vlan</span></span><br><span class="line">vlan batch 2112 2111 101</span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line"><span class="comment">#接着配置IP</span></span><br><span class="line">int vlan101</span><br><span class="line">ip address 10.12.174.1 24</span><br><span class="line">q</span><br><span class="line">int vlan2112</span><br><span class="line">ip address 10.12.162.1 23</span><br><span class="line">q</span><br><span class="line">int vlan2111</span><br><span class="line">ip address 10.12.174.1 23</span><br><span class="line">q</span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="ce-2"><a class="markdownIt-Anchor" href="#ce-2"></a> CE-2</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vlan2116:10.12.184.1&#x2F;22</span><br><span class="line">vlan2113:10.12.164.1&#x2F;22</span><br><span class="line">vlan2117:10.12.182.1&#x2F;22</span><br><span class="line">vlan100:10.12.172.1&#x2F;24</span><br></pre></td></tr></table></figure>
+<p>与上面大同小异。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 2116 2113 2117 100</span><br><span class="line"></span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/4</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">int vlan100</span><br><span class="line">ip address 10.12.172.1 24</span><br><span class="line">q</span><br><span class="line">int vlan2116</span><br><span class="line">ip address 10.12.184.1 22</span><br><span class="line">q</span><br><span class="line">int vlan2113</span><br><span class="line">ip address 10.12.164.1 22</span><br><span class="line">q</span><br><span class="line">int vlan2117</span><br><span class="line">ip address 10.12.182.1 22</span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h4 id="学生宿舍三层交换机"><a class="markdownIt-Anchor" href="#学生宿舍三层交换机"></a> 学生宿舍三层交换机</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vlan102:10.12.173.1&#x2F;24</span><br><span class="line">vlan2115:10.12.176.1&#x2F;22</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 102 2115</span><br><span class="line"></span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line">int g0/0/2</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all</span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">int vlan102</span><br><span class="line">ip address 10.12.173.1 24</span><br><span class="line">q</span><br><span class="line">int vlan2115</span><br><span class="line">ip address 10.12.176.1 22</span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<h3 id="网关路由器配置"><a class="markdownIt-Anchor" href="#网关路由器配置"></a> 网关路由器配置</h3>
+<p>重中之重！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#rip路由（我觉得好像没有用）</span></span><br><span class="line">sys</span><br><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">network 10.0.0.0</span><br><span class="line">dis this</span><br><span class="line">q</span><br><span class="line"><span class="comment">#ospf路由我好像也没有配</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置接口信息</span></span><br><span class="line">sys</span><br><span class="line"></span><br><span class="line">int g0/0/0</span><br><span class="line">ip addr 10.12.174.1 24</span><br><span class="line">q</span><br><span class="line">int g0/0/0.1</span><br><span class="line">dot1q termination vid 2112</span><br><span class="line">ip addr 10.12.162.1 23</span><br><span class="line">arp broadcast <span class="built_in">enable</span> </span><br><span class="line">q</span><br><span class="line">int g0/0/0.2</span><br><span class="line">dot1q termination vid 2111</span><br><span class="line">ip addr 10.12.160.1 23</span><br><span class="line">arp broadcast <span class="built_in">enable</span> </span><br><span class="line">q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int g0/0/1</span><br><span class="line">ip addr 10.12.172.1 24</span><br><span class="line">q</span><br><span class="line">int g0/0/1.1</span><br><span class="line">dot1q termination vid 2116</span><br><span class="line">ip addr 10.12.184.1 22</span><br><span class="line">arp broadcast <span class="built_in">enable</span> </span><br><span class="line">q</span><br><span class="line">int g0/0/1.2</span><br><span class="line">dot1q termination vid 2113</span><br><span class="line">ip addr 10.12.164.1 22</span><br><span class="line">arp broadcast <span class="built_in">enable</span> </span><br><span class="line">q</span><br><span class="line">int g0/0/1.3</span><br><span class="line">dot1q termination vid 2117</span><br><span class="line">ip addr 10.12.182.1 22</span><br><span class="line">arp broadcast <span class="built_in">enable</span></span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">int g0/0/2</span><br><span class="line">ip addr 10.12.173.1 24</span><br><span class="line">q</span><br><span class="line">int g0/0/2.1</span><br><span class="line">dot1q termination vid 2115</span><br><span class="line">ip addr 10.12.176.1 22</span><br><span class="line">arp broadcast <span class="built_in">enable</span></span><br><span class="line">q</span><br><span class="line"></span><br><span class="line">q</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<p>最终实现结果如下：</p>
+<p><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/20211209224653.png" alt="IP信息" /></p>
+<p><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/20211209225440.png" alt="路由表" /></p>
+<h3 id="ftp-http"><a class="markdownIt-Anchor" href="#ftp-http"></a> FTP、HTTP</h3>
+<p>在上面测试完毕发现所有的主机之间都是相通的情况下，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>F</mi><mi>T</mi><mi>P</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;FTP\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>H</mi><mi>T</mi><mi>T</mi><mi>P</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;HTTP\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>测试就直接通过了。非常的赏心悦目。</p>
+<hr />
+<ul>
+<li>
+<p>补充一下用于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>  </mtext><mi>D</mi><mi>e</mi><mi>b</mi><mi>u</mi><mi>g</mi><mtext>  </mtext></mrow><annotation encoding="application/x-tex">\;Debug\;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">e</span><span class="mord mathdefault">b</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span>的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dis ip int b</span><br><span class="line">dis ip routing-table</span><br><span class="line">dis vlan</span><br><span class="line">dis port vlan active</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h3>
+<p>[1]<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40613029/article/details/105646384">综合组网实验(eNSP)(vlan、vlan间通信、nat地址转换、acl、dhcp、ospf……)_！不将就的博客-CSDN博客_ensp综合组网实验</a></p>
+<p>[2]<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42248536/article/details/90632562">RIP配置（6）——RIP与不连续子网_Knowledge warehouse-CSDN博客_rip不连续子网</a></p>
+<p>[3]<a target="_blank" rel="noopener" href="https://forum.huawei.com/enterprise/zh/forum.php?mod=viewthread&amp;tid=462839&amp;extra=page&amp;page=2">Page 2 of eNSP配置RIP報錯Error: The network address is invalid,and the specified address must be major-n (huawei.com)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1524276984@qq.com">Zhao CP</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zhao-zhao2001.gitee.io/2021/12/09/eNSP%E4%BB%BF%E7%9C%9F%E7%BB%84%E7%BD%91%E5%AE%9E%E9%AA%8C/">https://zhao-zhao2001.gitee.io/2021/12/09/eNSP%E4%BB%BF%E7%9C%9F%E7%BB%84%E7%BD%91%E5%AE%9E%E9%AA%8C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zhao-zhao2001.gitee.io" target="_blank">穿越时空BB机</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/ddbf825676bf4842a1634e0382828f28.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/25/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"><img class="prev-cover" src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/1d4f4a50882d11ebb6edd017c2d2eca2.jpg" onerror="onerror=null;src='https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">学生成绩管理系统</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/07/OS%E5%AE%9E%E9%AA%8C%E4%B8%89-%E4%B8%BB%E5%AD%98%E7%AE%A1%E7%90%86/"><img class="next-cover" src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/e8a1f1c42f9d4167a3ca37b1ef14f65a.jpg" onerror="onerror=null;src='https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">OS实验三:主存管理</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/self.png" onerror="this.onerror=null;this.src='https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zhao CP</div><div class="author-info__description">巅峰产生虚伪的拥护，黄昏见证真正的信徒</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Zhao-zhao2001" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="mailto:1524276984@qq.com" target="_blank" title="Email"><i class="iconfont icon-zhuangsetubiao-18"></i></a><a class="social-icon" href="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/qq.jpg" target="_blank" title="QQ"><i class="iconfont icon-linedesign-17"></i></a><a class="social-icon" href="https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/wechat.jpg" target="_blank" title="微信"><i class="iconfont icon-wechat"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text"> 拓扑图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text"> 二层交换机配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text"> 数据中心服务器接入交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%9D%B6%E5%9C%BA%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.2.</span> <span class="toc-text"> 网络靶场接入交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.3.</span> <span class="toc-text"> 教学实验室接入交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%99%E5%AE%A4%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.4.</span> <span class="toc-text"> 教室接入交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%91%E7%A0%94%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.5.</span> <span class="toc-text"> 科研实验室接入交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E7%94%9F%E5%AE%BF%E8%88%8D%E6%8E%A5%E5%85%A5%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.6.</span> <span class="toc-text"> 学生宿舍接入交换机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text"> 三层交换机配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%8E%E5%BE%B7%E6%A5%BC%E4%B8%80%E6%A5%BC%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83"><span class="toc-number">3.1.</span> <span class="toc-text"> 明德楼一楼数据中心</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ce-2"><span class="toc-number">3.2.</span> <span class="toc-text"> CE-2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E7%94%9F%E5%AE%BF%E8%88%8D%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">3.3.</span> <span class="toc-text"> 学生宿舍三层交换机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E5%85%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text"> 网关路由器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ftp-http"><span class="toc-number">5.</span> <span class="toc-text"> FTP、HTTP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text"> 参考资料</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://changpeng-image.oss-cn-hangzhou.aliyuncs.com/images-master/img/ddbf825676bf4842a1634e0382828f28.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Zhao CP</div><div class="footer_custom_text"><p><a style="margin-inline:5px"target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为 Hexo" alt="HEXO"></a><a style="margin-inline:5px"target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用 Butterfly" alt="Butterfly"></a><a style="margin-inline:5px"target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用 Jsdelivr 为静态资源提供CDN加速" alt="Jsdelivr"></a><a style="margin-inline:5px"target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由 GitHub 托管" alt="GitHub"></a><a style="margin-inline:5px"target="_blank"href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt="img" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment-six.vercel.app/',
+      avatar: 'monsterid',
+      avatarCDN: 'https://sdn.geekzu.org/avatar/',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script data-pjax src="/js/Peng.js"></script><div class="aplayer no-destroy" data-id="6735350605" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SerokSSR/cdn/meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>function electric_clock_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
+                console.log('已挂载electric_clock')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            electric_clock_injector_config()
+        } </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax  src="https://cdn.jsdelivr.net/gh/Zfour/hexo-electric-clock@1.0.6/clock.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
